@@ -1,6 +1,7 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { useStore } from '@/store/useStore';
 import {
     Building2,
     CreditCard,
@@ -18,16 +19,17 @@ interface DashboardLayoutProps {
     children: React.ReactNode;
 }
 
-const SIDEBAR_ITEMS = [
-    { icon: LayoutDashboard, label: 'Dashboard', active: true },
-    { icon: Building2, label: 'Cantieri' },
-    { icon: Users, label: 'Personale' },
-    { icon: CreditCard, label: 'Contabilità' },
-    { icon: FileText, label: 'Documenti' },
-];
-
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
     const [isMobileOpen, setIsMobileOpen] = useState(false);
+    const { managerView, setManagerView } = useStore();
+
+    const SIDEBAR_ITEMS = [
+        { icon: LayoutDashboard, label: 'Dashboard', id: 'dashboard' as const, active: managerView === 'dashboard' },
+        { icon: Building2, label: 'Cantieri', id: 'site_details' as const, active: managerView === 'site_details' },
+        { icon: Users, label: 'Personale', id: 'staff' as const, active: false }, // Placeholder
+        { icon: CreditCard, label: 'Contabilità', id: 'accounting' as const, active: false }, // Placeholder
+        { icon: FileText, label: 'Documenti', id: 'docs' as const, active: false }, // Placeholder
+    ];
 
     const SidebarContent = () => (
         <div className="flex flex-col h-full bg-slate-950 text-slate-100 border-r border-slate-800">
@@ -43,12 +45,18 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                         <Button
                             key={item.label}
                             variant="ghost"
-                            className={`w-full justify-start text-sm font-medium ${item.active
-                                ? 'bg-blue-600/10 text-blue-400 hover:bg-blue-600/20 hover:text-blue-300'
+                            onClick={() => {
+                                if (item.id === 'dashboard' || item.id === 'site_details') {
+                                    setManagerView(item.id);
+                                    setIsMobileOpen(false);
+                                }
+                            }}
+                            className={`w-full justify-start text-sm font-medium transition-all duration-300 ${item.active
+                                ? 'bg-blue-600/10 text-blue-400 border-l-2 border-blue-500 rounded-none rounded-r-md'
                                 : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50'
                                 }`}
                         >
-                            <item.icon className="mr-3 h-5 w-5" />
+                            <item.icon className={`mr-3 h-5 w-5 ${item.active ? 'text-blue-500' : ''}`} />
                             {item.label}
                         </Button>
                     ))}

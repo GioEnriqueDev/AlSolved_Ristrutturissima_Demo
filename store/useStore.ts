@@ -4,6 +4,7 @@ import { MOCK_SITES, MOCK_STATS, MOCK_TRANSACTIONS, MOCK_WORKERS } from '@/lib/m
 
 interface AppState {
     viewMode: 'manager' | 'worker';
+    managerView: 'dashboard' | 'site_details';
     stats: DashboardStats;
     transactions: Transaction[];
     workers: Worker[];
@@ -11,6 +12,7 @@ interface AppState {
 
     // Actions
     setViewMode: (mode: 'manager' | 'worker') => void;
+    setManagerView: (view: 'dashboard' | 'site_details') => void;
     addTransaction: (transaction: Transaction) => void;
     updateWorkerStatus: (workerId: string, status: Worker['status'], siteId?: string) => void;
     approveTransaction: (id: string) => void;
@@ -19,12 +21,14 @@ interface AppState {
 
 export const useStore = create<AppState>((set) => ({
     viewMode: 'manager',
+    managerView: 'dashboard',
     stats: MOCK_STATS,
     transactions: [],
     workers: [],
     sites: MOCK_SITES,
 
     setViewMode: (mode) => set({ viewMode: mode }),
+    setManagerView: (view) => set({ managerView: view }),
 
     addTransaction: (transaction) => set((state) => ({
         transactions: [transaction, ...state.transactions],
