@@ -18,9 +18,9 @@ export default function SmartReconciliation() {
                 <CardHeader>
                     <CardTitle className="text-slate-100 flex items-center gap-2">
                         <Check className="h-5 w-5 text-emerald-500" />
-                        All Caught Up!
+                        Tutto Aggiornato!
                     </CardTitle>
-                    <CardDescription>No pending reconciliations required.</CardDescription>
+                    <CardDescription>Nessuna riconciliazione richiesta.</CardDescription>
                 </CardHeader>
             </Card>
         );
@@ -28,8 +28,8 @@ export default function SmartReconciliation() {
 
     const handleApprove = () => {
         approveTransaction(pendingTransaction.id);
-        toast.success('Transaction Matched Successfully', {
-            description: `Matched €${pendingTransaction.amount} with Bank Transaction #8823`,
+        toast.success('Transazione Riconciliata', {
+            description: `Abbinato €${pendingTransaction.amount} con Transazione Bancaria #8823`,
         });
     };
 
@@ -37,10 +37,10 @@ export default function SmartReconciliation() {
         <Card className="bg-gradient-to-br from-slate-900 to-slate-950 border-amber-500/20 shadow-lg shadow-amber-900/10">
             <CardHeader>
                 <CardTitle className="text-slate-100 flex items-center gap-2">
-                    Smart Reconciliation
-                    <span className="inline-flex items-center rounded-md bg-amber-400/10 px-2 py-1 text-xs font-medium text-amber-500 ring-1 ring-inset ring-amber-400/20">Action Required</span>
+                    Riconciliazione Smart
+                    <span className="inline-flex items-center rounded-md bg-amber-400/10 px-2 py-1 text-xs font-medium text-amber-500 ring-1 ring-inset ring-amber-400/20">Azione Richiesta</span>
                 </CardTitle>
-                <CardDescription>AI suggests a match for this transaction.</CardDescription>
+                <CardDescription>L'IA suggerisce un abbinamento per questa transazione.</CardDescription>
             </CardHeader>
             <CardContent>
                 <div className="flex flex-col md:flex-row items-center gap-4 py-4">
@@ -48,11 +48,11 @@ export default function SmartReconciliation() {
                     {/* Bank Side */}
                     <div className="flex-1 w-full bg-slate-950/50 p-4 rounded-lg border border-slate-800">
                         <div className="flex items-center gap-2 mb-2 text-slate-400 text-xs uppercase tracking-wider">
-                            <FileText className="h-3 w-3" /> Bank Feed
+                            <FileText className="h-3 w-3" /> Flusso Bancario
                         </div>
                         <div className="font-mono text-lg text-slate-100">€{pendingTransaction.amount.toFixed(2)}</div>
                         <div className="text-sm text-slate-500 truncate">SIAE Microelettronica - POS</div>
-                        <div className="text-xs text-slate-600 mt-1">Today, 10:42 AM</div>
+                        <div className="text-xs text-slate-600 mt-1">Oggi, 10:42</div>
                     </div>
 
                     <div className="bg-slate-800 rounded-full p-2">
@@ -62,18 +62,18 @@ export default function SmartReconciliation() {
                     {/* App Side */}
                     <div className="flex-1 w-full bg-blue-950/20 p-4 rounded-lg border border-blue-500/20">
                         <div className="flex items-center gap-2 mb-2 text-blue-400 text-xs uppercase tracking-wider">
-                            <Smartphone className="h-3 w-3" /> Field Worker App
+                            <Smartphone className="h-3 w-3" /> App Cantiere
                         </div>
                         <div className="font-mono text-lg text-blue-100">€{pendingTransaction.amount.toFixed(2)}</div>
                         <div className="text-sm text-blue-200/70 truncate">{pendingTransaction.description}</div>
-                        <div className="text-xs text-blue-300/50 mt-1">Uploaded by {pendingTransaction.user}</div>
+                        <div className="text-xs text-blue-300/50 mt-1">Caricato da {pendingTransaction.user}</div>
                     </div>
 
                 </div>
             </CardContent>
             <CardFooter className="bg-slate-950/30 pt-6">
                 <Button onClick={handleApprove} className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium shadow-lg shadow-emerald-900/20">
-                    <Check className="mr-2 h-4 w-4" /> Approve Match
+                    <Check className="mr-2 h-4 w-4" /> Approva Abbinamento
                 </Button>
             </CardFooter>
         </Card>

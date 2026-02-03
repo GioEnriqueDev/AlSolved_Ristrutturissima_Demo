@@ -17,7 +17,7 @@ export default function ProductionChart() {
     return (
         <Card className="col-span-4 lg:col-span-3 bg-slate-900/50 border-slate-800 backdrop-blur">
             <CardHeader>
-                <CardTitle className="text-slate-100">Spese vs Produzione (Last 30 Days)</CardTitle>
+                <CardTitle className="text-slate-100">Spese vs Produzione (Ultimi 30 Giorni)</CardTitle>
             </CardHeader>
             <CardContent className="pl-2">
                 <ResponsiveContainer width="100%" height={350}>

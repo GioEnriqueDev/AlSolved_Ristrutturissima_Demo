@@ -86,8 +86,8 @@ export default function GPSClockIn() {
             <Button
                 size="lg"
                 className={`w-full h-40 rounded-2xl text-2xl font-bold shadow-2xl transition-all ${status === 'checking'
-                        ? 'bg-slate-800 text-slate-400 cursor-not-allowed'
-                        : 'bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-blue-900/20 ring-4 ring-blue-900/20'
+                    ? 'bg-slate-800 text-slate-400 cursor-not-allowed'
+                    : 'bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-blue-900/20 ring-4 ring-blue-900/20'
                     }`}
                 onClick={handlePress}
                 disabled={status === 'checking'}
@@ -95,7 +95,7 @@ export default function GPSClockIn() {
                 {status === 'checking' ? (
                     <div className="flex flex-col items-center gap-2">
                         <Loader2 className="h-8 w-8 animate-spin" />
-                        <span className="text-sm font-normal">Acquiring GPS...</span>
+                        <span className="text-sm font-normal">Acquisizione GPS...</span>
                     </div>
                 ) : (
                     <div className="flex flex-col items-center gap-2">

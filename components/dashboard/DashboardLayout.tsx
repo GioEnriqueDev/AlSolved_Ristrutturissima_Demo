@@ -44,8 +44,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                             key={item.label}
                             variant="ghost"
                             className={`w-full justify-start text-sm font-medium ${item.active
-                                    ? 'bg-blue-600/10 text-blue-400 hover:bg-blue-600/20 hover:text-blue-300'
-                                    : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50'
+                                ? 'bg-blue-600/10 text-blue-400 hover:bg-blue-600/20 hover:text-blue-300'
+                                : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50'
                                 }`}
                         >
                             <item.icon className="mr-3 h-5 w-5" />
@@ -91,7 +91,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     <div className="flex items-center gap-4 ml-auto">
                         <Button variant="outline" size="sm" className="hidden sm:flex border-slate-700 bg-slate-900/50 text-slate-300 hover:bg-slate-800 hover:text-white">
                             <Settings className="mr-2 h-4 w-4" />
-                            Settings
+                            Impostazioni
                         </Button>
                         <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-emerald-500 border border-slate-700" />
                     </div>

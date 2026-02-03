@@ -4,6 +4,7 @@ import ActivityFeed from "@/components/dashboard/ActivityFeed";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import KPISection from "@/components/dashboard/KPISection";
 import ProductionChart from "@/components/dashboard/ProductionChart";
+import FeatureWalkthrough from "@/components/dashboard/FeatureWalkthrough";
 import SmartReconciliation from "@/components/dashboard/SmartReconciliation";
 import ExpenseUpload from "@/components/mobile/ExpenseUpload";
 import GPSClockIn from "@/components/mobile/GPSClockIn";
@@ -81,6 +82,9 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <SmartReconciliation />
             </div>
+
+            {/* Feature Walkthrough (Demo Only) */}
+            <FeatureWalkthrough />
           </div>
         </DashboardLayout>
       ) : (

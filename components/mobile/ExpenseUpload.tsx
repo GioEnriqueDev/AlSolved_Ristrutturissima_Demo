@@ -84,17 +84,17 @@ export default function ExpenseUpload() {
                             <div className="grid grid-cols-2 gap-3">
                                 <Button type="button" variant="outline" className="h-20 border-slate-700 hover:bg-slate-800 flex flex-col gap-2">
                                     <Camera className="h-6 w-6 text-blue-400" />
-                                    <span className="text-xs text-slate-400">Camera</span>
+                                    <span className="text-xs text-slate-400">Fotocamera</span>
                                 </Button>
                                 <Button type="button" variant="outline" className="h-20 border-slate-700 hover:bg-slate-800 flex flex-col gap-2">
                                     <Upload className="h-6 w-6 text-slate-400" />
-                                    <span className="text-xs text-slate-400">Gallery</span>
+                                    <span className="text-xs text-slate-400">Galleria</span>
                                 </Button>
                             </div>
                         </div>
 
                         <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 mt-4" disabled={loading}>
-                            {loading ? 'Sending...' : 'Invia Nota Spese'}
+                            {loading ? 'Invio in corso...' : 'Invia Nota Spese'}
                         </Button>
                     </form>
                 </CardContent>

@@ -18,7 +18,7 @@ export default function ActivityFeed() {
     return (
         <Card className="col-span-4 lg:col-span-1 bg-slate-900/50 border-slate-800 backdrop-blur h-[430px] flex flex-col">
             <CardHeader>
-                <CardTitle className="text-slate-100">Live Feed</CardTitle>
+                <CardTitle className="text-slate-100">Attività Recenti</CardTitle>
             </CardHeader>
             <CardContent className="flex-1 p-0">
                 <ScrollArea className="h-[350px] px-6">
@@ -31,7 +31,7 @@ export default function ActivityFeed() {
                                 </Avatar>
                                 <div className="space-y-1">
                                     <p className="text-sm font-medium leading-none text-slate-200">
-                                        {t.user || 'Unknown User'}
+                                        {t.user || 'Utente Sconosciuto'}
                                     </p>
                                     <p className="text-xs text-slate-400">
                                         {t.type === 'expense' ? 'Ha caricato una spesa' : 'Incasso registrato'}
@@ -41,15 +41,14 @@ export default function ActivityFeed() {
                                             {t.type === 'expense' ? '-' : '+'}€{t.amount.toFixed(2)}
                                         </span>
                                         <span className="ml-auto text-[10px] text-slate-500 pl-2">
-                                            {/* Simplified relative time for demo if date-fns has issues with static export or locale, but should be fine */}
-                                            {formatDistanceToNow(new Date(t.date), { addSuffix: true })}
+                                            {formatDistanceToNow(new Date(t.date), { addSuffix: true, locale: it })}
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         ))}
                         {sortedTransactions.length === 0 && (
-                            <p className="text-center text-slate-500 text-sm py-4">No recent activity</p>
+                            <p className="text-center text-slate-500 text-sm py-4">Nessuna attività recente</p>
                         )}
                     </div>
                 </ScrollArea>
