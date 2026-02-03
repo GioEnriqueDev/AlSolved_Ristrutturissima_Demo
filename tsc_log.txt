@@ -1,0 +1,2 @@
+components/dashboard/KPISection.tsx(28,89): error TS2322: Type '{ value: number; className: string; indicatorclassName: string; }' is not assignable to type 'IntrinsicAttributes & ProgressProps & RefAttributes<HTMLDivElement>'.
+  Property 'indicatorclassName' does not exist on type 'IntrinsicAttributes & ProgressProps & RefAttributes<HTMLDivElement>'.
